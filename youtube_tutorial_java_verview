@@ -1,0 +1,127 @@
+/* JAVA */
+
+/** 
+ //(Some) Java concepts to 're-learn' [Package-Explorer]:
+ # ForLoops
+ # 'Getters'+`and`+"Setters"
+ # GettingUserInput (e.g new Scanner...)
+ # IfElseIf
+ # Inheritance (Inherits)
+ # InnerClasses
+ # Interfaces
+  # LogicalOperators
+ # Maps (`new ObjectOrClass() ?: {}`)
+ # Methods (i.e functions within objects|Classes)
+ # PackageExample
+ # Pi (method?, MathObject?, InnerProperty?)
+ ## Polymorphism
+ # PrimitiveDataTypes (Number, Float, Integer, String, Symbol, Boolean, Null, NaN, Undefined?)
+ # Static *
+ # StringyStrings
+ **/
+
+private class Back2JavaPrograms {
+
+    public static int main(String[] args) {
+        // TO-DO "Auto-generated" method stub
+        int myInt = 7;
+        float giveMeFloating = 7.77; // double64bit-sized (float is 32)
+        double combiningVariables = giveMeFloating - myInt;
+        char only1Quote = 'J'; // ASINC-II standard for 256 single characters
+        /* Primitives can't EVOKE methods (in jv)*/
+
+        String[3] stringsAreSpecialinJava = [ // strgs aren't primitive in jv
+            "First-name",
+            "Middle_name",
+            "Full Name"
+        ];
+
+        // :Creating/Accessing objects(mapping) through `instances`
+        Noises myNoise = new Noises();
+        Noises anotherSound = new Noises();
+
+        // :Setting properties within obj`instances`
+        anotherSound.noise = "Bar-Foo";
+        anotherSound.level = 10;
+
+        System.out.println(
+        myInt * giveMeFloating,
+        stringsAreSpecialinJava[0] + stringsAreSpecialinJava[1],
+        stringsAreSpecialinJava.length(), 
+        stringsAreSpecialinJava[2].toUpperCase(), // : FULL NAME
+        anotherSound.noise + myNoise.level
+        );
+
+        // Evoking fnc | methods
+        String dogVoice = bark();
+        System.out.println( bodyMassCalculator(94, 1.83) );
+
+        // :Conditionals
+        if (!stringsAreSpecialinJava[0]) {
+            // Not(negation) op
+        } else if (stringsAreSpecialinJava[2].equals("Full Name")) {
+            // This one will run
+        } else {
+            // Fallback-plan ('default')
+        }
+        if (myInt <= giveMeFloating) {} // ==, !=, <, > (No 'strictly' op in jv!)
+
+        // :Loops
+        for (int i = 19; i >= 10; i--) {
+            if (i == 11 && only1Quote !null) {
+                break; // It'll iterate 8 times
+            }
+            System.out.println("I will get good@tJava!");
+        }
+
+        // :Calling an external class/object
+        Noises.makeANoise("Foo-Bar", 9);
+
+        // :Evoking methods through obj 'instances'
+        myNoise.makeANoise("Lambda", 8);
+        anotherSound.makeANoise();
+
+        for (int makingSounds = 0; makingSounds < 1; makingSounds += 1) {
+            if (!anotherSound) {
+                myNoise.makeANoise("The cat does Mheow!", 2);
+                anotherSound.makeANoise(); // params/args settled
+            } 
+        }
+
+        // :'Static' vs non-static method evoke
+        Noises.removeNoise();
+        anotherSound.removeNoise();
+    } // <- 'main' method/function *
+
+    // :New methods within 'main' class-mth
+    private static String bark() {
+        return System.out.println("Whoooww!!!");
+    }
+
+    public static double bodyMassCalculator(weight int, height float) {
+        double calculatedValue = (weight * height) / 2;
+        return calculatedValue;
+    }
+} // <- 'main' class #
+
+// :Writing another class(new obj)
+public class  Noises {
+    // :Defining(undefined) properties
+    String sound;
+    int level;
+
+    public void makeANoise(whichNoise String[], amountNoise int) {
+        this.sound = whichNoise;
+        this.level = amountNoise;
+        System.out.println(
+            "Making a... " + this.sound,
+            "Powered to... " + this.level
+        );
+    }
+
+    // :A 'static' method (can be evoked without external instances)
+    public static void removeNoise() {
+        this.sound = "Silence..."
+        this.level = 0;
+    }
+}
